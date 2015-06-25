@@ -1,0 +1,8 @@
+setup.py
+scholarcitation/__init__.py
+scholarcitation/scholarcitation.py
+scholarcitation.egg-info/PKG-INFO
+scholarcitation.egg-info/SOURCES.txt
+scholarcitation.egg-info/dependency_links.txt
+scholarcitation.egg-info/requires.txt
+scholarcitation.egg-info/top_level.txt
