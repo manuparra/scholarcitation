@@ -1,1 +1,2 @@
-### Google Scholar citation indices tool
+Google Scholar citation indices tool
+====================================
