@@ -63,7 +63,7 @@ It returns full list of citation indices with the next format:
 + --- AllCitation
 ```
 
-### Classes
+### Class Scholar Query
 
 ```python
 
@@ -75,7 +75,7 @@ for i in sq.author_list:
   print i
   
 #Query for citation indices:
-sq.set_author_id(id_user=1iSTbIkAAAAJ)
+sq.set_author_id(id_user="1iSTbIkAAAAJ")
 sq.get_citations()
 print sq.citations_list	
 
