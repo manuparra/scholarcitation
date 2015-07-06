@@ -66,7 +66,19 @@ It returns full list of citation indices with the next format:
 ### Classes
 
 ```python
-python scholarcitation/scholarcitation.py -a "Benitez"
+
+#Scholar Query Class
+sq=ScholarQ()
+#Query for authors ID
+sq.set_author(author="Benitez")
+for i in sq.author_list:
+  print i
+  
+#Query for citation indices:
+sq.set_author_id(id_user=1iSTbIkAAAAJ)
+sq.get_citations()
+print sq.citations_list	
+
 ```
 
 
