@@ -81,9 +81,9 @@ class ScholarAuthors(object):
 	
 	def __str__(self):
 		
-		_strret= '{0:30}     {1:12}\n'.format("Author", "Scholar ID")
-		_strret=_strret + '{0:30}     {1:20}\n'.format("------------------------------", "---------------")
-		_strret=_strret + '{0:30}     {1:12}\n'.format(self.author_name, self.author_id)
+		#_strret= '{0:30}     {1:12}\n'.format("Author", "Scholar ID")
+		#_strret=_strret + '{0:30}     {1:20}\n'.format("------------------------------", "---------------")
+		_strret = '{0:50}\t{1:12}'.format(self.author_name.encode("utf-8"), self.author_id)
 
 		return _strret
 
@@ -107,7 +107,7 @@ class ScholarAuthorsCitations(object):
 
 	def __str__(self):
 		
-		_strret= '{0:6d}  {1:6d}  {2:4d}  {3:4d}  {4:4d}  {5:4d}\n'.format(self.all_cit,self.f2010_cit,self.hindex_cit,self.f2010hindex_cit,self.i10index_cit,self.fi10index_cit)
+		_strret= '{0:6d}  {1:6d}  {2:4d}  {3:4d}  {4:4d}  {5:4d}'.format(self.all_cit,self.f2010_cit,self.hindex_cit,self.f2010hindex_cit,self.i10index_cit,self.fi10index_cit)
 		
 		return _strret	
 
@@ -146,8 +146,8 @@ class ParserAuthors(object):
 		Call method
 
 		"""
-		self.chunk=data
-		self.results=[]
+		#self.chunk=data
+		#self.results=[]
 
 	def __process(self):
 		"""
@@ -159,10 +159,10 @@ class ParserAuthors(object):
 		
 		for l in lst_auths_html:
 			a_code=l.find_all("a",href=True)
-			a_name=l.findAll("span",{"class":"gs_hlt"})
+			a_name=l.findAll("span",{"class":"gs_hlt"})			
 			for a in a_code:			
 				url = urlparse.urlparse(a["href"])
-				params = urlparse.parse_qs(url.query)			
+				params = urlparse.parse_qs(url.query)
 				self.results.append(ScholarAuthors(author_name=a.text,author_id=params['user'][0]))		
 
 	def parse(self):	
