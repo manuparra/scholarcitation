@@ -48,20 +48,20 @@ python scholarcitation/scholarcitation.py -c "1iSTbIkAAAAJ"
 ```
 It returns full list of citation indices with the next format:
 
-AllCitation CitationFrom2010 h-index h-index2010 i10index i10index2010
-
-i.e.
-
 ```bash
 1174     770    15    15    22    18
-|        |   
-|
-| 
-| 
-| 
-| 
+|        |      |     |     |     |
+|        |      |     |     |     + --- i10 index from 2010
+|        |      |     |     + --- i10 index
+|        |      |     + --- h-index from 2010
+|        |      + --- h-index
+|        + --- Citation from 2010
 + --- AllCitation
 ```
+
+
+
+
 
 
 
