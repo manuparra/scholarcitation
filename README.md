@@ -9,12 +9,11 @@ This package contain a few tools to query Google Scholar API
 
 ### Installation:
 
-Downloag package:
+Clone git repo:
 
-https://github.com/manuparra/scholarcitation.git
+git clone https://github.com/manuparra/scholarcitation.git
 
-
-Install package
+Go to the folder scholarcitation and install python package
 ```bash
 python setup.py install
 ```
