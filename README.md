@@ -24,7 +24,7 @@ It will solve packages dependences, but if you want resolve manually, scholarcit
 * BeautifulSoup
 * requests
 
-#### Command line tools
+### Command line tools
 
 Use commandline tool directly for retrieve authors :
 
