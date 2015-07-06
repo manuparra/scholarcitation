@@ -63,7 +63,11 @@ It returns full list of citation indices with the next format:
 + --- AllCitation
 ```
 
+### Classes
 
+```python
+python scholarcitation/scholarcitation.py -a "Benitez"
+```
 
 
 
