@@ -62,14 +62,17 @@ It returns full list of citation indices with the next format:
 + --- AllCitation
 ```
 
-### Class Scholar Query
+### Scholar Citation package and  Class Scholar Query
 
 ```python
 
+import  scholarcitation
+
 #Scholar Query Class
-sq=ScholarQ()
+sq=scholarcitation.ScholarQ()
 #Query for authors ID
 sq.set_author(author="Benitez")
+sq.get_authors()
 for i in sq.author_list:
   print i
   
