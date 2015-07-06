@@ -31,18 +31,18 @@ It returns authors name list and authors Scholar IDs:
 
 ```bash
 Claudia Benitez-Nelson                            	nEuGaD4AAAAJ
-Pablo Benítez                                    	xUa4mvQAAAAJ
+Pablo Benítez                                    	  xUa4mvQAAAAJ
 Carmen Benitez                                    	nKmzlbUAAAAJ
 Jose M. Benitez                                   	1iSTbIkAAAAJ
-Fernando Caballero Benítez                       	nb2teTwAAAAJ
+Fernando Caballero Benítez                       	  nb2teTwAAAAJ
 Bruno A Benitez                                   	oKv9jsUAAAAJ
 Diego S. Benitez                                  	tUshCMcAAAAJ
 Julio Cesar Benitez Medina                        	vq_KS3UAAAAJ
-Miguel López-Benítez                            	CPeHC9IAAAAJ
-Antonio Benítez-Burraco                          	BIgRcW4AAAAJ
+Miguel López-Benítez                            	  CPeHC9IAAAAJ
+Antonio Benítez-Burraco                          	  BIgRcW4AAAAJ
 ```
 
-Use commandline tool directly for retrieve citations :
+And then you can use commandline tool directly for retrieve author ID citations:
 ```bash
 python scholarcitation/scholarcitation.py -c "1iSTbIkAAAAJ"
 ```
