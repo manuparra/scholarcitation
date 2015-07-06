@@ -19,6 +19,10 @@ Install package
 python setup.py install
 ```
 
+It will solve packages dependences, but if you want resolve manually, scholarcitation requiere the next python packages:
+
+* BeautifulSoup
+* requests
 
 #### Command line tools
 
