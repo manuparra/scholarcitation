@@ -78,6 +78,15 @@ class ScholarAuthors(object):
 	def __init__(self,author_name=None, author_id=None):
 		self.author_name=author_name
 		self.author_id=author_id
+	
+	def __str__(self):
+		
+		#_strret= '{0:30}     {1:12}\n'.format("Author", "Scholar ID")
+		#_strret=_strret + '{0:30}     {1:20}\n'.format("------------------------------", "---------------")
+		_strret = '{0:50}\t{1:12}'.format(self.author_name.encode("utf-8"), self.author_id)
+
+		return _strret
+
 
 class ScholarAuthorsCitations(object):
 	"""Scholar Authors Citation Class.
@@ -89,12 +98,18 @@ class ScholarAuthorsCitations(object):
 		Init method
 		
 		"""
-		self.all_cit=all_cit
-		self.f2010_cit=f2010_cit
-		self.hindex_cit=hindex_cit
-		self.f2010hindex_cit=f2010hindex_cit
-		self.i10index_cit=i10index_cit
-		self.fi10index_cit=fi10index_cit
+		self.all_cit=int(all_cit)
+		self.f2010_cit=int(f2010_cit)
+		self.hindex_cit=int(hindex_cit)
+		self.f2010hindex_cit=int(f2010hindex_cit)
+		self.i10index_cit=int(i10index_cit)
+		self.fi10index_cit=int(fi10index_cit)
+
+	def __str__(self):
+		
+		_strret= '{0:6d}  {1:6d}  {2:4d}  {3:4d}  {4:4d}  {5:4d}'.format(self.all_cit,self.f2010_cit,self.hindex_cit,self.f2010hindex_cit,self.i10index_cit,self.fi10index_cit)
+		
+		return _strret	
 
 
 
@@ -131,8 +146,8 @@ class ParserAuthors(object):
 		Call method
 
 		"""
-		self.chunk=data
-		self.results=[]
+		#self.chunk=data
+		#self.results=[]
 
 	def __process(self):
 		"""
@@ -144,11 +159,11 @@ class ParserAuthors(object):
 		
 		for l in lst_auths_html:
 			a_code=l.find_all("a",href=True)
-			a_name=l.findAll("span",{"class":"gs_hlt"})
+			a_name=l.findAll("span",{"class":"gs_hlt"})			
 			for a in a_code:			
 				url = urlparse.urlparse(a["href"])
 				params = urlparse.parse_qs(url.query)
-				self.results.append(ScholarAuthors(author_name=a.text,author_id=params['user']))		
+				self.results.append(ScholarAuthors(author_name=a.text,author_id=params['user'][0]))		
 
 	def parse(self):	
 		"""
@@ -219,6 +234,7 @@ class ScholarQ(object):
 		self.author_name=""
 		self.author_id=""
 		self.author_list=[]
+		self.citations_list=[]
 		
 
 	def set_author(self,author):
@@ -261,6 +277,12 @@ class ScholarQ(object):
 
 		cit_list=ParserCitation(data=r.text)
 		cit_list.parse()
+		self.citations_list=cit_list.result
+
+	def print_authors(self):
+		"""
+		Print 
+		"""
 
 
 def main():
@@ -277,8 +299,16 @@ A python command-line interface to Google Scholar citation indices
 Examples:	
 # Query the author by name and return name of authors and users ID.
 scholarcitation.py -a 'Jose M. Benitez'
+
+#It returns Google Scholar ID for the given researcher.
+
 # Query citation for the user ID.
-scholarcitation.py -i 'HULIk-QAAAAJ'"""
+scholarcitation.py -i 'HULIk-QAAAAJ'
+
+#It returns Google Scholar citantions for the given ID researcher following next scheme:
+AllCites  CitesFrom2010  h-index  h-indexFrom2010 i10-index  i10-indexFrom2010."""
+
+
 
 
 	
@@ -307,16 +337,20 @@ scholarcitation.py -i 'HULIk-QAAAAJ'"""
 		parser.print_help()
 		return 1
 	
-
+	sq=ScholarQ()
 	if options.author!=None:
-		#Executing Author Option 
-		sq=ScholarQ()
+		#Executing Author Option 		
 		sq.set_author(author=options.author)
 		sq.get_authors()
+		for i in sq.author_list:
+			print i
+
 	else:
 		#Executing Citations Option
 		sq.set_author_id(id_user=options.cites)
 		sq.get_citations()
+
+		print sq.citations_list			
 
 
 

@@ -258,6 +258,7 @@ class ScholarQ(object):
 		Get authors list.
 
 		"""
+		requests.packages.urllib3.disable_warnings()
 		r = requests.get(self.GET_AUTHOR_URL, verify=False, 
             	params=self.url_authors_params, 
               	headers={'User-Agent': ScholarConf.USER_AGENT})
@@ -271,6 +272,7 @@ class ScholarQ(object):
 		Get citations's list
 
 		"""
+		requests.packages.urllib3.disable_warnings()
 		r = requests.get(self.GET_AUTHOR_URL, verify=False, 
             	params=self.url_author_params, 
               	headers={'User-Agent': ScholarConf.USER_AGENT})
